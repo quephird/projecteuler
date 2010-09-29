@@ -1,4 +1,4 @@
-(ns com.quephird.pe.tests.test-divutils
+(ns com.quephird.pe.tests.test-util
   (:use clojure.test com.quephird.pe.util)
 )
 
@@ -28,6 +28,13 @@
     (is (= (digits 42222) '(4 2 2 2 2))))
 )
 
+(deftest testing-digit-sum
+  (testing "The sum of the digits of a single digit number should simply be that number"
+    (is (= (digit-sum 4) 4)))
+  (testing "The sum of the digits of 1234 should be 10"
+    (is (= (digit-sum 1234) 10)))
+)
+
 (deftest testing-reverse-int
   (testing "The reverse of a single digit number should simply be that number"
     (is (= (reverse-int 4) 4)))
@@ -45,3 +52,32 @@
   (testing "123454321 is a palindrome"
     (is (true? (palindrome? 123454321))))
 )
+
+(deftest testing-gcd
+  (testing "The GCD of any number and 1 should be 1"
+    (is (= (gcd 42 1) 1)))
+  (testing "The GCD of any list of numbers containing 1 should be 1"
+    (is (= (gcd 42 13 5 1 31415) 1)))
+  (testing "The GCD of two relatively prime numbers should be 1"
+    (is (= (gcd 9 4) 1)))
+  (testing "The GCD of a list of pairwise relatively prime numbers should be 1"
+    (is (= (gcd 3 7 8 55) 1)))
+  (testing "The GCD of a number and a multiple of that number should be that number"
+    (is (= (gcd 7 42) 7)))
+)
+
+(deftest testing-lcm
+  (testing "The LCM of any number and 1 should be that number"
+    (is (= (lcm 42 1) 42)))
+  (testing "The LCM of two relatively prime numbers should be their product"
+    (is (= (lcm 9 4) 36)))
+  (testing "The LCM of a list of pairwise relatively prime numbers should be their product"
+    (is (= (lcm 3 7 8 55) (* 3 7 8 55))))
+)
+
+(deftest testing-power
+  (testing "A number raised to the zeroth power is simply 1"
+    (is (= (power 3 0) 1)))
+)
+
+(run-tests)
