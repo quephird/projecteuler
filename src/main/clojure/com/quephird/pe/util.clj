@@ -30,10 +30,6 @@
   (= n (reverse-int n))
 )
 
-(defn divides? [n d]
-  (zero? (rem n d))
-)
-
 ; I'm not sure that I like these two implementations;
 ; they certainly express the problem in an understandable
 ; way, but they're too deeply recursive, and thus easily
@@ -83,4 +79,37 @@
 
 (defn fibonacci [n]
   (nth fibonacci-seq n)
+)
+
+(defn divides? [n d]
+  (zero? (rem n d))
+)
+
+(declare prime? prime-seq)
+
+(defn prime? [n]
+  (every? #(not (divides? n %)) (take-while #(<= (* % %) n) prime-seq))
+)
+
+(def prime? (memoize prime?))
+
+(def prime-seq
+  (concat '(2 3 5 7)
+    (filter #(prime? %) (map #(+ (* 2 %) 7) (iterate inc 1))))
+)
+
+(defn prime [n]
+  (nth prime-seq (dec n))
+)
+
+(defn factorize [n]
+  (loop [test-primes (take-while #(<= (* % %) n) prime-seq)
+         tmp n
+         retval '()]
+    (if (prime? tmp)
+      (concat retval (list tmp))
+      (let [p (first test-primes)]
+        (if (divides? tmp p)
+          (recur test-primes (quot tmp p) (concat retval (list p)))
+          (recur (rest test-primes) tmp retval)))))
 )
