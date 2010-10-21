@@ -10,9 +10,27 @@
 )
 
 (defn first-index-of [pred lst]
-  (count (take-while pred lst))
+  (count (take-while #(not (pred %)) lst))
 )
 
+;(defn first-index-of [pred lst]
+;  (loop [retval 0
+;         tmp lst]
+;    (if (empty? tmp)
+;      nil
+;     (if (pred (first lst))
+;       recur (inc retval) (rest lst))
+;    )
+;  )
+;)
+
+;(first-index-of even? (list 1 1 1 1 1 1 1 1 1 2 3 3 3 3))
+
+(defn first-value-of [pred lst]
+  (first (drop-while #(not (pred %)) lst))
+)
+
+;(first-value-of even? (list 1 1 1 1 1 1 1 1 1 2 3 3 3 3))
 
 (defn digits [n]
   (map #(Integer/parseInt (str %)) (.toCharArray (str n)))
