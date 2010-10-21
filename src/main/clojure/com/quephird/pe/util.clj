@@ -10,7 +10,11 @@
 )
 
 (defn first-index-of [pred lst]
-  (count (take-while pred lst))
+  (count (take-while #(not (pred %)) lst))
+)
+
+(defn first-value-of [pred lst]
+  (first (drop-while #(not (pred %)) lst))
 )
 
 
