@@ -77,6 +77,19 @@
     (= (+ (* a a) (* b b)) (* c c)))
 )
 
+(defn square? [n]
+  (let [sqrt-n (Math/floor (Math/sqrt n))]
+    (= n (* sqrt-n sqrt-n)))
+)
+
+;(square? 25)
+;(square? 4)
+;(square? 5)
+;(square? 26)
+;(square? 1000001)
+;(square? 1000000)
+
+
 ;(pythagorean-triple? [3 4 5])
 ;(pythagorean-triple? [5 12 13])
 ;(pythagorean-triple? [3 4 6])

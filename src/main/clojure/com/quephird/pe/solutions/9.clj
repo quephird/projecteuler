@@ -2,18 +2,6 @@
   (:use com.quephird.pe.util)
 )
 
-(defn square? [n]
-  (let [sqrt-n (Math/floor (Math/sqrt n))]
-    (= n (* sqrt-n sqrt-n)))
-)
-
-;(square? 25)
-;(square? 4)
-;(square? 5)
-;(square? 26)
-;(square? 1000001)
-;(square? 1000000)
-
 (defn answer []
   (apply *
     (first-value-of pythagorean-triple?
