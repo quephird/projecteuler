@@ -41,8 +41,8 @@
 71636269561882670428252483600823257530420752963450")
 )
 
-(defn euler-8 []
+(defn answer []
   (apply max (map #(list-prod %) (moving-take 5 (digits really-big-number))))
 )
 
-(euler-8)
+(answer)

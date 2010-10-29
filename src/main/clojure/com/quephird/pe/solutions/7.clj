@@ -1,9 +1,9 @@
-(ns com.quephird.pe.solutions.5
+(ns com.quephird.pe.solutions.7
   (:use com.quephird.pe.util)
 )
 
 (defn answer []
-  (apply lcm (range 1 21))
+  (prime 10001)
 )
 
 (answer)

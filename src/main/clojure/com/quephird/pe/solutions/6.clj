@@ -2,7 +2,7 @@
   (:use com.quephird.pe.util)
 )
 
-(defn euler-6 []
+(defn answer []
   (let [first-100-ints (range 1 101)
         square (fn [n] (* n n))]
     (- (square (list-sum first-100-ints))
@@ -10,4 +10,4 @@
   )
 )
 
-(euler-6)
+(answer)

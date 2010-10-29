@@ -2,7 +2,7 @@
   (:use com.quephird.pe.util)
 )
 
-(defn euler-4 []
+(defn answer []
   (apply max
     (filter palindrome?
       (map #(apply * %)
@@ -14,5 +14,5 @@
   )
 )
 
-(euler-4)
+(answer)
 
