@@ -70,6 +70,17 @@
     (apply lcm (cons (lcm x y) more)))
 )
 
+(defn pythagorean-triple? [v]
+  (let [a (first v)
+        b (second v)
+        c (last v)]
+    (= (+ (* a a) (* b b)) (* c c)))
+)
+
+;(pythagorean-triple? [3 4 5])
+;(pythagorean-triple? [5 12 13])
+;(pythagorean-triple? [3 4 6])
+
 (defn power [n e]
   (cond
     (zero? e) 1
