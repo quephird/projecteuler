@@ -3,7 +3,7 @@
 )
 
 (defn euler-25 []
-  (first-index-of #(< % (power 10 999)) fibonacci-seq)
+  (first-index-of #(> % (power 10 999)) fibonacci-seq)
 )
 
 (euler-25)

@@ -2,8 +2,8 @@
   (:use com.quephird.pe.util)
 )
 
-(defn euler-1 []
+(defn answer []
   (list-sum (filter #(or (divides? % 3) (divides? % 5)) (range 1 1000)))
 )
 
-(euler-1)
+(answer)
