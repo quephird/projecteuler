@@ -207,3 +207,28 @@
   )
 )
 
+(def triangle-seq
+  (map #(/ (* % (+ % 1)) 2) (iterate inc 1))
+)
+
+(def square-seq
+  (map #(* % %) (iterate inc 1))
+)
+
+(def pentagonal-seq
+  (map #(/ (* % (- (* 3 %) 1)) 2) (iterate inc 1))
+)
+
+(def hexagonal-seq
+  (map #(* % (- (* 2 %) 1)) (iterate inc 1))
+)
+
+(def heptagonal-seq
+  (map #(/ (* % (- (* 5 %) 3)) 2) (iterate inc 1))
+)
+
+(def octagonal-seq
+  (map #(* % (- (* 3 %) 2)) (iterate inc 1))
+)
+
+

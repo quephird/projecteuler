@@ -14,6 +14,8 @@
   (:require [com.quephird.pe.solutions.37 :as s37])
   (:require [com.quephird.pe.solutions.45 :as s45])
   (:require [com.quephird.pe.solutions.49 :as s49])
+  (:require [com.quephird.pe.solutions.74 :as s74])
+  (:require [com.quephird.pe.solutions.206 :as s206])
 )
 
 (deftest testing-solution-1
@@ -84,6 +86,16 @@
 (deftest testing-solution-49
   (testing "The concatenation of the only other arithmetic sequence of 4-digit primes which are permutations of one another should be 296962999629."
     (is (= 296962999629 (s49/answer))))
+)
+
+(deftest testing-solution-74
+  (testing "The number of factorial digit sum sequences for all starting numbers below 1000000 should be 402."
+    (is (= 402 (s74/answer))))
+)
+
+(deftest testing-solution-206
+  (testing "The sole integer whose square has the pattern 1_2_3_4_5_6_7_8_9_0 should be 1389019170."
+    (is (= 1389019170 (s206/answer))))
 )
 
 (run-tests)

@@ -2,12 +2,6 @@
   (:use com.quephird.pe.util)
 )
 
-(def triangle-seq
-  (map #(/ (* % (- % 1)) 2) (iterate inc 2))
-)
-
-;(take 5 triangle-seq)
-
 ; Pentagonal and hexagonal numbers are of the forms n(3n-1)/2 and n(2n-1),
 ; respectively. If a number x is a pentagonal number, then 3n^2 - n - 2x = 0
 ; and solving for n,
