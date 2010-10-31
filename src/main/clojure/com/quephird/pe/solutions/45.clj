@@ -8,11 +8,22 @@
 
 ;(take 5 triangle-seq)
 
-;Pentagonal 	  	P_(n)=n(3n?1)/2 	  	1, 5, 12, 22, 35, ...
-;Hexagonal 	  	H_(n)=n(2n?1) 	  	1, 6, 15, 28, 45, ...
-
-;3n^2 - n - 2x = 0
-;2n^2 - n - x = 0
+; Pentagonal and hexagonal numbers are of the forms n(3n-1)/2 and n(2n-1),
+; respectively. If a number x is a pentagonal number, then 3n^2 - n - 2x = 0
+; and solving for n,
+;             _______
+;    n = 1 + /1 + 24x
+;        ------------
+;             6
+;
+; Thus, in order to test that a given x is pentagonal, corresponding to an index n,
+; the discriminant must be a perfect square and the entire result must be divisible
+; by 6. In an similar fashion, a given x can only be hexagonal according to the
+; equation 2n^2 - n - x = 0 yielding the following solution:
+;             ______
+;    n = 1 + /1 + 8x
+;        ------------
+;             4
 
 (defn pentagonal? [n]
   (let [discriminant (+ 1 (* 24 n))]

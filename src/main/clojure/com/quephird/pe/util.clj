@@ -13,10 +13,6 @@
   (count (take-while #(not (pred %)) lst))
 )
 
-(defn first-value-of [pred lst]
-  (first (drop-while #(not (pred %)) lst))
-)
-
 ;(first-index-of even? (list 1 1 1 1 1 1 1 1 1 2 3 3 3 3))
 
 (defn first-value-of [pred lst]
@@ -24,6 +20,10 @@
 )
 
 ;(first-value-of even? (list 1 1 1 1 1 1 1 1 1 2 3 3 3 3))
+
+(defn permutations? [lsts]
+  (apply = (map #(sort %) lsts))
+)
 
 (defn digits [n]
   (map #(Integer/parseInt (str %)) (.toCharArray (str n)))

@@ -10,6 +10,10 @@
   (:require [com.quephird.pe.solutions.8 :as s8])
   (:require [com.quephird.pe.solutions.9 :as s9])
   (:require [com.quephird.pe.solutions.10 :as s10])
+  (:require [com.quephird.pe.solutions.27 :as s27])
+  (:require [com.quephird.pe.solutions.37 :as s37])
+  (:require [com.quephird.pe.solutions.45 :as s45])
+  (:require [com.quephird.pe.solutions.49 :as s49])
 )
 
 (deftest testing-solution-1
@@ -62,5 +66,24 @@
     (is (= 142913828922 (s10/answer))))
 )
 
+(deftest testing-solution-27
+  (testing "The product of the coefficients of a quadratic equation of the form n^2+a*n+b yielding the maximum number of consecutive values of n beginning at 0 should be -59231."
+    (is (= -59231 (s27/answer))))
+)
+
+(deftest testing-solution-37
+  (testing "The sum of the only eleven primes that are both truncatable from left and from the right should be 748317."
+    (is (= 748317 (s37/answer))))
+)
+
+(deftest testing-solution-45
+  (testing "The next triangular number after 40755 that is also pentagonal and hexagonal should be 1533776805."
+    (is (= 1533776805 (s45/answer))))
+)
+
+(deftest testing-solution-49
+  (testing "The concatenation of the only other arithmetic sequence of 4-digit primes which are permutations of one another should be 296962999629."
+    (is (= 296962999629 (s49/answer))))
+)
 
 (run-tests)
