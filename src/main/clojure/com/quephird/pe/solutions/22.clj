@@ -4,14 +4,23 @@
 (defn sum [numbers]
   (reduce + 0 numbers))
 
-(defn extract-names [text]
-  (as-> text $
-    (str/split $ #",")
-    (map (fn [token] (str/replace token #"\"" "") $))))
+(defn tokenize-using [pattern text]
+  (str/split text pattern))
 
-(defn alphabetical-value [name]
+(defn strip-quotes [token]
+  (str/replace token #"\"" ""))
+
+(defn extract-names [text]
+  (->> text
+    (tokenize-using #",")
+    (map strip-quotes)))
+
+(defn letter-value [letter]
+  (- (int letter) 64))
+
+(defn word-value [name]
   (->> name
-    (map (fn [letter] (- (int letter) 64)))
+    (map letter-value)
     sum))
 
 (defn score-all [names]
