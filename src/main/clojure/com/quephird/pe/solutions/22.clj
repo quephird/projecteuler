@@ -7,7 +7,7 @@
 (defn extract-names [text]
   (as-> text $
     (str/split $ #",")
-    (map #(str/replace % #"\"" "") $)))
+    (map (fn [token] (str/replace token #"\"" "") $))))
 
 (defn alphabetical-value [name]
   (->> name
